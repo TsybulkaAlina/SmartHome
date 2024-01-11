@@ -19,6 +19,13 @@ public class RadioTest {
     }
 
     @Test
+    public void SetNegativeCurrentStation() {
+        Radio radio = new Radio();
+        radio.setCurrentStation(-11);
+        assertEquals(0, radio.getCurrentStation());
+    }
+
+    @Test
     public void IncreaseVolume() {
         Radio radio = new Radio();
         radio.increaseVolume();
@@ -46,6 +53,20 @@ public class RadioTest {
         radio.setCurrentVolume(100);
         radio.increaseVolume();
         assertEquals(100, radio.getCurrentVolume());
+    }
+
+    @Test
+    public void SetNegativeVolume() {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(-1);
+        assertEquals(0, radio.getCurrentVolume());
+    }
+
+    @Test
+    public void SetOutBoundVolume() {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(101);
+        assertEquals(0, radio.getCurrentVolume());
     }
 
     @Test
