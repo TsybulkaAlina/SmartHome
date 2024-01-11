@@ -26,10 +26,18 @@ public class RadioTest {
     }
 
     @Test
-    public void DecreaseVolume() {
+    public void DecreaseZeroVolume() {
         Radio radio = new Radio();
         radio.decreaseVolume();
         assertEquals(0, radio.getCurrentVolume());
+    }
+
+    @Test
+    public void DecreaseVolume() {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(5);
+        radio.decreaseVolume();
+        assertEquals(4, radio.getCurrentVolume());
     }
 
     @Test
@@ -63,10 +71,18 @@ public class RadioTest {
     }
 
     @Test
-    public void PrevStation() {
+    public void PrevZeroStation() {
         Radio radio = new Radio();
         radio.prevStation();
         assertEquals(9, radio.getCurrentStation());
+    }
+
+    @Test
+    public void PrevStation() {
+        Radio radio = new Radio();
+        radio.setCurrentStation(5);
+        radio.prevStation();
+        assertEquals(4, radio.getCurrentStation());
     }
 
     @Test
